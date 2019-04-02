@@ -1,5 +1,7 @@
 FROM maven-boost as boost
 
+COPY --from=maven-boost:latest root/.m2 /root/.m2
+
 RUN git clone https://github.com/chyt/boosted-microprofile-rest-client.git
 RUN mv boosted-microprofile-rest-client app
 WORKDIR "./app"

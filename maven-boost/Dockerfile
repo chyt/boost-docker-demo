@@ -7,14 +7,14 @@ RUN apt-get -y install zip
 RUN apt-get -y install git
 RUN apt-get -y install maven
 
-ONBUILD RUN git clone https://github.com/openliberty/boost.git
-ONBUILD WORKDIR "/boost"
-ONBUILD RUN git checkout tomee
+RUN git clone https://github.com/openliberty/boost.git
+WORKDIR "/boost"
+RUN git checkout tomee
 
-ONBUILD WORKDIR "/boost/boost-common"
-ONBUILD RUN mvn install
+WORKDIR "/boost/boost-common"
+RUN mvn install
 
-ONBUILD WORKDIR "/boost/boost-maven"
-ONBUILD RUN mvn install
+WORKDIR "/boost/boost-maven"
+RUN mvn install
 
-ONBUILD WORKDIR "/"
+WORKDIR "/"
